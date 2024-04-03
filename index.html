@@ -37,7 +37,7 @@ img {margin-bottom: -7px}
 <div class="w3-clear"></div>
 <header class="w3-center w3-margin-bottom">
   <h1><b>PHOTOLIO</b></h1>
-  <p myfunction()>This is text</p>
+  <p>This is text</p>
   
 </header>
 </div>
@@ -70,13 +70,8 @@ img {margin-bottom: -7px}
  
 <script>
 // Toggle grid padding
-function myFunction() {
-  var x = document.getElementById("myGrid");
-  if (x.className === "w3-row") {
-    x.className = "w3-row-padding";
-  } else { 
-    x.className = x.className.replace("w3-row-padding", "w3-row");
-  }
+if (x.className === "w3-row") {
+  x.className = "w3-row-padding"
 }
 
 // Open and close sidebar
