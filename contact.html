@@ -36,12 +36,18 @@ img {margin-bottom: -7px}
 <div class="w3-clear"></div>
 <header class="w3-center w3-margin-bottom">
     
-<form action="https://formspree.io/f/mkndqdky" method="post">
-	  <label for="email">Your Email</label>
-	  <input name="Email" id="email" type="email">
-	  <button type="submit">Submit</button>
-	</form>
-<script>
+<form action="https://formspree.io/f/mkndqdky" method="POST">
+  <label>
+    Your email:
+    <input type="email" name="email">
+  </label>
+  <label>
+    Your message:
+    <textarea name="message"></textarea>
+  </label>
+  <!-- your other form fields go here -->
+  <button type="submit">Send</button>
+</form>
   
 // Open and close sidebar
 function w3_open() {
