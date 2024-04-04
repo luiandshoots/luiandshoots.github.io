@@ -55,7 +55,7 @@ img {margin-bottom: -7px}
   </div>
   <div>
   <!-- your other form fields go here -->
-  <button type="submit">Send</button>
+  <button type="submit" onclick="submitForm()">Send</button>
   </div>
 </form>
   
@@ -70,8 +70,13 @@ function w3_close() {
   document.getElementById("mySidebar").style.display = "none";
 }
 
-$(window).load(function() {
-$('form').children('input:not(#submit)').val('')
+function submitForm() {
+   // Get the first form with the name
+   // Hopefully there is only one, but there are more, select the correct index
+   var frm = document.getElementsByName('contact-form')[0];
+   frm.submit(); // Submit
+   frm.reset();  // Reset
+   return false; // Prevent page refresh
 }
 
 </script>
