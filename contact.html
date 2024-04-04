@@ -37,18 +37,25 @@ img {margin-bottom: -7px}
 <header class="w3-center w3-margin-bottom">
     
 <form action="https://formspree.io/f/mkndqdky" method="POST">
+  <div>
   <label>
     Your email:
-    <input type="email" name="email">
+    <input type="email" name="email">  
   </label>
+  </div>
+  <div>
   <label>
     Your message:
     <textarea name="message"></textarea>
   </label>
+  </div>
+  <div>
   <!-- your other form fields go here -->
   <button type="submit">Send</button>
+  </div>
 </form>
   
+<script>
 // Open and close sidebar
 function w3_open() {
   document.getElementById("mySidebar").style.width = "100%";
