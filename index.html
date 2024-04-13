@@ -8,11 +8,14 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="icon" type="image/x-icon" href="Photos/favicon.ico">
+
 <style>
 body,h1 {font-family: "Montserrat", sans-serif}
 img {margin-bottom: -7px}
+
 .w3-row-padding img {margin-bottom: 12px}
 /* Style the Image Used to Trigger the Modal */
+
 #myImg {
   border-radius: 5px;
   cursor: pointer;
@@ -89,7 +92,6 @@ img {margin-bottom: -7px}
     width: 100%;
   }
 }
-
 </style>
 </head>
 <body>
@@ -203,7 +205,12 @@ span.onclick = function() {
   modal.style.display = "none";
 }
 
-</script>
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
 
+</script>
 </body>
 </html>
