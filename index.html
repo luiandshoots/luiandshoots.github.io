@@ -121,35 +121,27 @@ img {margin-bottom: -7px}
 </header>
 </div>
 
+<div id="enlargedImg">
+  <img id="displayimg" style="width:100%">
+</div>
+
 <!-- Photo Grid -->
 <div class="w3-row" id="myGrid" style="margin-bottom:128px">
   <div class="w3-third">
-    <img id="myImg" src="Photos/Image6.jpeg" style="width:100%">
-    <!-- The Modal -->
-<div id="myModal" class="modal">
-
-  <!-- The Close Button -->
-  <span class="close">&times;</span>
-
-  <!-- Modal Content (The Image) -->
-  <img class="modal-content" id="img01">
-
-  <!-- Modal Caption (Image Text) -->
-  <div id="caption"></div>
-</div>
-    <img id="myImg" src="Photos/Image7.jpeg" style="width:100%">
+    <img id="myImg" class="enlargeable" src="Photos/Image6.jpeg" style="width:100%">
+    <img id="myImg" class="enlargeable" src="Photos/Image7.jpeg" style="width:100%">
   </div>
 
   <div class="w3-third">
-    <img id="myImg" src="Photos/Image1.JPG" style="width:100%">
-    <img id="myImg" src="Photos/Image8.jpeg" style="width:100%">
-    <img id="myImg" src="Photos/Image5.jpeg" style="width:100%">
+    <img id="myImg" class="enlargeable" src="Photos/Image1.JPG" style="width:100%">
+    <img id="myImg" class="enlargeable" src="Photos/Image8.jpeg" style="width:100%">
+    <img id="myImg" class="enlargeable" src="Photos/Image5.jpeg" style="width:100%">
   </div>
 
   <div class="w3-third">
-    <img id="myImg" src="Photos/Image2.jpg" style="width:100%">
-    <img id="myImg" src="Photos/Image3.jpg" style="width:100%">
-    <img id="myImg" src="Photos/Image4.jpeg" style="width:100%">
+    <img id="myImg" class="enlargeable" src="Photos/Image2.jpg" style="width:100%">
+    <img id="myImg" class="enlargeable" src="Photos/Image3.jpg" style="width:100%">
+    <img id="myImg" class="enlargeable" src="Photos/Image4.jpeg" style="width:100%">
   </div>
 </div>
 
@@ -180,37 +172,33 @@ function w3_close() {
   document.getElementById("mySidebar").style.display = "none";
 }
 
-img.onclick = function(){
-  var modal = document.getElementById("myModal");
+// Get all elements with the "enlargeable" class
+var enlargeableImages = document.querySelectorAll('.enlargeable');
 
-  // Get the image and insert it inside the modal - use its "alt" text as a caption
-  var images = document.getElementsByClassName("myImg");
+// Loop through each image and attach the event handler
+enlargeableImages.forEach(function(img) {
+  img.addEventListener('click', function() {
+    enlargeImage(img);
+  });
+});
 
-  // Loop through each image and attach a click event listener
-  for (var i = 0; i < images.length; i++) {
-    images[i].addEventListener("click", function() {
-      var modal = document.getElementById("myModal");
-      var modalImg = document.getElementById("img01");
-      var captionText = document.getElementById("caption");
-      
-      // Display the modal
-      modal.style.display = "block";
-      
-      // Set the source and caption of the clicked image
-      modalImg.src = this.src;
-      captionText.innerHTML = this.alt;
-    });
+function enlargeImage(img) {
+  // Get the enlarged image container
+  var modal = document.getElementById('enlargedImg');
+  
+  // Get the image inside the container
+  var modalImg = document.getElementById("displayimg");
+
+  // Display the enlarged image
+  modal.style.display = "block";
+  modalImg.src = img.src;
+
+  // Close the modal when clicking outside the image
+  modal.onclick = function() {
+    modal.style.display = "none";
   }
 }
 
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}  
 </script>
 
 </body>
